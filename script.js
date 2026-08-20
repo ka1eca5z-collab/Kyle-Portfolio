@@ -32,7 +32,7 @@
   document.querySelectorAll('[data-profile-link]').forEach(link => {
     const key = link.dataset.profileLink;
     let value = (profile[key] || '').trim();
-    if (key === 'email' && value && !value.startsWith('mailto:')) value = `mailto:${value}`;
+    if (key === 'email' && value && !value.includes(':')) value = `mailto:${value}`;
     if (value) {
       link.href = value;
       link.classList.remove('is-placeholder');
